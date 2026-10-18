@@ -52,14 +52,6 @@ region = Rect2(132, 32, 33, 32)
 atlas = ExtResource("2_6laf6")
 region = Rect2(165, 32, 33, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_awy6c"]
-atlas = ExtResource("2_6laf6")
-region = Rect2(0, 128, 33, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5otof"]
-atlas = ExtResource("2_6laf6")
-region = Rect2(33, 128, 33, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_0r8a8"]
 atlas = ExtResource("2_6laf6")
 region = Rect2(0, 160, 33, 32)
@@ -116,17 +108,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_awy6c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5otof")
-}],
-"loop": 0,
-"name": &"dano",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_0r8a8")
 }],
 "loop": 1,
@@ -159,7 +140,7 @@ shape = SubResource("RectangleShape2D_bgaj5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="jogador" unique_id=1199657432]
 position = Vector2(160, -104)
 sprite_frames = SubResource("SpriteFrames_oox5t")
-animation = &"dano"
+animation = &"ancioso"
 autoplay = "ancioso"
 
 [node name="Ui" type="CanvasLayer" parent="." unique_id=754263347]

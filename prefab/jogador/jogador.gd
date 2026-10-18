@@ -11,7 +11,6 @@ var cronometroPulo : float = 0
 var tempoFlutuando : float = 0.075
 var cronometroFlutuando : float = 0
 var controlavel : bool = true
-var esta_machucado : bool = false
 
 # Variaveis da vida do personagem
 @export var vida_maxima: int = 3
@@ -73,9 +72,6 @@ func _physics_process(delta):
 
 # Função para atualizar a animação com base na direção em que o jogador está indo
 func update_animations():
-	if esta_machucado:
-		animacao.play("dano")
-		return
 	if direcao != 0:
 		animacao.flip_h = direcao < 0
 		animacao.play("correndo")	
@@ -89,29 +85,15 @@ func update_animations():
 
 # Função que causa dano ao personagem
 func perder_vida(quantidade: int) -> void:
-	if esta_machucado:
-		return
-		
 	vida_atual -= quantidade
 	print("Jogador perdeu vida! Vida atual: ", vida_atual)
 	if vida_atual <= 0:
 		morto()
-		return
-		
-	esta_machucado = true
-	await get_tree().create_timer(0.4).timeout
-	esta_machucado = false
 
 # Função que recupera a vida do personagem
 func ganhar_vida(quantidade: int) -> void:
-	vida_atual = min(vida_atual + quantidade, vida_maxima)
+	vida_atual += quantidade
 	print("Jogador ganhou vida! Vida atual: ", vida_atual)
-
-# Função que faz o personagem quicar (usada ao pisar em um inimigo)
-func quicar(forca: float = -250.0) -> void:
-	velocity.y = forca
-	pulando = false
-	cronometroPulo = 0
 
 # Função que "mata" o personagem (tira o controle e deixa o personagem invisivel)
 func morto() -> void:

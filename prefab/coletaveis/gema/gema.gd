@@ -15,8 +15,5 @@ func spawn_feedback():
 # Quando o jogador coleta a cereja o feedback e o sinal são ativados e a cereja é destruida 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "jogador":
-		if body.has_method("ativar_escudo"):
-			body.ativar_escudo(5.0)
 		spawn_feedback()
 		queue_free()
-		

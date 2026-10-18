@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://bttsjij0ss8q0"]
 
 [ext_resource type="Script" uid="uid://dmo7lvnex4ic0" path="res://prefab/inimigos/sapo/sapo.gd" id="1_b1t80"]
-[ext_resource type="Script" path="res://scripts/inimigo.gd" id="3_inimigo"]
 [ext_resource type="Texture2D" uid="uid://m7jx3eb2ey3e" path="res://prefab/inimigos/sapo/sapo-jump.png" id="1_wu27m"]
 [ext_resource type="Texture2D" uid="uid://dbaymly2fej4i" path="res://prefab/inimigos/sapo/sapo-idle.png" id="2_dv45u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kx4j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxog5"]
 size = Vector2(16, 10)
@@ -68,7 +69,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="sapo" type="Node2D" unique_id=741222602]
+[node name="Area2D" type="Area2D" unique_id=741222602]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=798539546]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_0kx4j")
 
 [node name="Frog" type="CharacterBody2D" parent="." unique_id=1526537207]
 collision_layer = 0
@@ -87,14 +92,4 @@ autoplay = "idle"
 wait_time = 2.0
 autostart = true
 
-[node name="Hurtbox" type="Area2D" parent="Frog" unique_id=1186652401 node_paths=PackedStringArray("raiz")]
-collision_layer = 0
-script = ExtResource("3_inimigo")
-raiz = NodePath("../..")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Frog/Hurtbox" unique_id=1186652402]
-position = Vector2(0, 5)
-shape = SubResource("RectangleShape2D_yxog5")
-
 [connection signal="timeout" from="Frog/Timer" to="Frog" method="_on_timer_timeout"]
-[connection signal="body_entered" from="Frog/Hurtbox" to="Frog/Hurtbox" method="_on_body_entered"]

@@ -1,11 +1,5 @@
 extends Control
 
-func _ready() -> void:
-	# Desabilita os botões das fases que ainda não foram desbloqueadas (botão 1 = fase 1, ...)
-	var botoes = $VBoxContainer/fases.get_children()
-	for i in botoes.size():
-		botoes[i].disabled = not controladorFases.estaDesbloqueada(i + 1)
-
 func _on_voltar_pressed() -> void:
 	controladorFases.fecharfase()
 	get_tree().change_scene_to_file("res://principal.tscn")

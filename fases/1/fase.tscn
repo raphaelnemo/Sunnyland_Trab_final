@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c6diiunn70psp" path="res://prefab/coletaveis/cereja/cereja.tscn" id="6_0a68p"]
 [ext_resource type="PackedScene" uid="uid://hvw2tjk7rxpp" path="res://prefab/inimigos/gamba/gamba.tscn" id="7_1isg4"]
 [ext_resource type="PackedScene" uid="uid://cxi72585fqnhp" path="res://prefab/platformaDirecional.tscn" id="8_o74rv"]
-[ext_resource type="PackedScene" uid="uid://qumpmhs5pj7a" path="res://prefab/controle/fundo.tscn" id="11_fundo01"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8vpl0"]
 texture = ExtResource("2_jwkdp")
@@ -229,8 +228,6 @@ sources/1 = SubResource("TileSetAtlasSource_8vpl0")
 [node name="Fase1" type="Node2D" unique_id=288449485]
 script = ExtResource("1_0a68p")
 idFase = 1
-
-[node name="Fundo" parent="." unique_id=1430021101 instance=ExtResource("11_fundo01")]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=775396262]
 tile_set = SubResource("TileSet_yxog5")

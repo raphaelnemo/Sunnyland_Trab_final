@@ -34,6 +34,8 @@ metadata/_custom_type_script = "uid://crlsa3rh6xvjp"
 [sub_resource type="Resource" id="Resource_qlig8"]
 script = ExtResource("2_7cuts")
 idFase = 5
+nomeFase = "Fase 05"
+faseDesbloqueada = true
 metadata/_custom_type_script = "uid://crlsa3rh6xvjp"
 
 [sub_resource type="SystemFont" id="SystemFont_7cuts"]
@@ -45,6 +47,10 @@ subpixel_positioning = 0
 font = SubResource("SystemFont_7cuts")
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yxog5"]
+font_size = 12
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_ep5lw"]
 font_names = PackedStringArray("Monospace")
@@ -87,6 +93,15 @@ offset_right = 272.0
 offset_bottom = 55.0
 text = "SunnyLand"
 label_settings = SubResource("LabelSettings_emcp4")
+
+[node name="sub-titulo" type="Label" parent="Menu" unique_id=1692936254]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 56.0
+offset_right = 170.0
+offset_bottom = 79.0
+text = "Trabalho - jogos digitais"
+label_settings = SubResource("LabelSettings_yxog5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=797176468]
 layout_mode = 0
