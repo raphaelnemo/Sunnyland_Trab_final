@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bbglmxmanygyj"]
+
+[ext_resource type="Script" uid="uid://bt4xho4l5escg" path="res://aguia.gd" id="1_g1p6e"]
+[ext_resource type="Texture2D" uid="uid://ccy0y70qbsene" path="res://prefab/inimigos/gaviao/eagle-attack.png" id="2_r04lu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5up6q"]
+atlas = ExtResource("2_r04lu")
+region = Rect2(0, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i1fb"]
+atlas = ExtResource("2_r04lu")
+region = Rect2(40, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b8i6"]
+atlas = ExtResource("2_r04lu")
+region = Rect2(80, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdur4"]
+atlas = ExtResource("2_r04lu")
+region = Rect2(120, 0, 40, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_njbnf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5up6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0i1fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7b8i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdur4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0582"]
+size = Vector2(32, 37)
+
+[node name="aguia" type="Area2D" unique_id=1338005032]
+script = ExtResource("1_g1p6e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1621982319]
+sprite_frames = SubResource("SpriteFrames_njbnf")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=234432262]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_n0582")
+
+[node name="Timer" type="Timer" parent="." unique_id=1156393968]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://qumpmhs5pj7a"]
+
+[ext_resource type="Script" path="res://scripts/fundo.gd" id="1_fundogd"]
+[ext_resource type="Texture2D" uid="uid://d3inn0asxct2u" path="res://assets/fases/Background/back.png" id="2_ceu"]
+[ext_resource type="Texture2D" uid="uid://bfy6bt02nkhhn" path="res://assets/fases/Background/middle.png" id="3_colinas"]
+
+[node name="Fundo" type="CanvasLayer" unique_id=1430021001]
+layer = -100
+script = ExtResource("1_fundogd")
+
+[node name="Ceu" type="Node2D" parent="." unique_id=1430021002]
+position = Vector2(-256, 0)
+
+[node name="ceu0" type="Sprite2D" parent="Ceu" unique_id=1430021010]
+position = Vector2(0, 0)
+texture = ExtResource("2_ceu")
+centered = false
+
+[node name="ceu1" type="Sprite2D" parent="Ceu" unique_id=1430021011]
+position = Vector2(384, 0)
+texture = ExtResource("2_ceu")
+centered = false
+flip_h = true
+
+[node name="ceu2" type="Sprite2D" parent="Ceu" unique_id=1430021012]
+position = Vector2(768, 0)
+texture = ExtResource("2_ceu")
+centered = false
+
+[node name="ceu3" type="Sprite2D" parent="Ceu" unique_id=1430021013]
+position = Vector2(1152, 0)
+texture = ExtResource("2_ceu")
+centered = false
+flip_h = true
+
+[node name="ceu4" type="Sprite2D" parent="Ceu" unique_id=1430021014]
+position = Vector2(1536, 0)
+texture = ExtResource("2_ceu")
+centered = false
+
+[node name="ceu5" type="Sprite2D" parent="Ceu" unique_id=1430021015]
+position = Vector2(1920, 0)
+texture = ExtResource("2_ceu")
+centered = false
+flip_h = true
+
+[node name="Colinas" type="Node2D" parent="." unique_id=1430021003]
+position = Vector2(-512, 70)
+
+[node name="colina0" type="Sprite2D" parent="Colinas" unique_id=1430021016]
+position = Vector2(0, 0)
+texture = ExtResource("3_colinas")
+centered = false
+
+[node name="colina1" type="Sprite2D" parent="Colinas" unique_id=1430021017]
+position = Vector2(176, 0)
+texture = ExtResource("3_colinas")
+centered = false
+flip_h = true
+
+[node name="colina2" type="Sprite2D" parent="Colinas" unique_id=1430021018]
+position = Vector2(352, 0)
+texture = ExtResource("3_colinas")
+centered = false
+
+[node name="colina3" type="Sprite2D" parent="Colinas" unique_id=1430021019]
+position = Vector2(528, 0)
+texture = ExtResource("3_colinas")
+centered = false
+flip_h = true
+
+[node name="colina4" type="Sprite2D" parent="Colinas" unique_id=1430021020]
+position = Vector2(704, 0)
+texture = ExtResource("3_colinas")
+centered = false
+
+[node name="colina5" type="Sprite2D" parent="Colinas" unique_id=1430021021]
+position = Vector2(880, 0)
+texture = ExtResource("3_colinas")
+centered = false
+flip_h = true
+
+[node name="colina6" type="Sprite2D" parent="Colinas" unique_id=1430021022]
+position = Vector2(1056, 0)
+texture = ExtResource("3_colinas")
+centered = false
+
+[node name="colina7" type="Sprite2D" parent="Colinas" unique_id=1430021023]
+position = Vector2(1232, 0)
+texture = ExtResource("3_colinas")
+centered = false
+flip_h = true
+
+[node name="colina8" type="Sprite2D" parent="Colinas" unique_id=1430021024]
+position = Vector2(1408, 0)
+texture = ExtResource("3_colinas")
+centered = false
+
+[node name="colina9" type="Sprite2D" parent="Colinas" unique_id=1430021025]
+position = Vector2(1584, 0)
+texture = ExtResource("3_colinas")
+centered = false
+flip_h = true
+
+[node name="colina10" type="Sprite2D" parent="Colinas" unique_id=1430021026]
+position = Vector2(1760, 0)
+texture = ExtResource("3_colinas")
+centered = false
+
+[node name="colina11" type="Sprite2D" parent="Colinas" unique_id=1430021027]
+position = Vector2(1936, 0)
+texture = ExtResource("3_colinas")
+centered = false
+flip_h = true
