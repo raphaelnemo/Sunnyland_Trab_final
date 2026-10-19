@@ -115,12 +115,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node" type="Node" unique_id=1472519340 groups=["jogador"]]
+[node name="Node" type="Node" unique_id=1472519340]
 script = ExtResource("1_awy6c")
 
 [node name="jogador" type="CharacterBody2D" parent="." unique_id=919842630 groups=["jogador"]]
 position = Vector2(-8, 8)
 script = ExtResource("1_o11ko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jogador" unique_id=797489401]
+position = Vector2(160, -96)
+shape = SubResource("RectangleShape2D_bgaj5")
 
 [node name="Camera2D" type="Camera2D" parent="jogador" unique_id=1029244272]
 position = Vector2(8, -192)
@@ -132,10 +136,6 @@ limit_bottom = 0
 limit_smoothed = true
 drag_vertical_enabled = true
 drag_bottom_margin = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="jogador" unique_id=797489401]
-position = Vector2(160, -96)
-shape = SubResource("RectangleShape2D_bgaj5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="jogador" unique_id=1199657432]
 position = Vector2(160, -104)
