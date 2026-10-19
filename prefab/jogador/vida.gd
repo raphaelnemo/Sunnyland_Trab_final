@@ -37,10 +37,10 @@ func atualizar_vida_ui(vida_atual: int) -> void:
 
 # função que recebe e repassa o sinal de dano
 func _on_gamba_jogador_dano(body) -> void:
-	if body.name == "jogador":
+	if body.name == "jogador" or body.name == "Player":
 		body.perder_vida(1)
 
 # função que recebe e repassa o sinal de recuperacao
 func _on_cereja_jogador_recuperacao(body) -> void:
-	if body.name == "jogador":
+	if body.name == "jogador" or body.name == "Player":
 		body.ganhar_vida(1)
