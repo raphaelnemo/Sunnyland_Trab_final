@@ -212,6 +212,11 @@ func _get_player() -> Node2D:
 			return node
 		elif node.get_parent() is Node2D:
 			return node.get_parent()
+	var scene := get_tree().current_scene
+	if scene:
+		for node in scene.find_children("*", "Node2D", true, false):
+			if node.name.to_lower() == "player" or node.name.to_lower() == "jogador":
+				return node
 	return null
 
 func _on_player_detected(body: Node2D) -> void:
@@ -220,7 +225,7 @@ func _on_player_detected(body: Node2D) -> void:
 	if state != State.PATROL:
 		return
 
-	if body.is_in_group("player") or body.is_in_group("jogador"):
+	if body.is_in_group("player") or body.is_in_group("jogador") or body.name.to_lower() == "player" or body.name.to_lower() == "jogador":
 		dive_target = body.global_position
 		state = State.DIVE
 		can_dive_again = false

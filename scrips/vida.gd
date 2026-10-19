@@ -28,15 +28,23 @@ func _ready() -> void:
 		get_tree().node_added.connect(_on_node_added)
 
 func _buscar_jogador() -> void:
-	if has_node("jogador"):
-		jogador = get_node("jogador")
-	elif get_parent() and get_parent().has_node("Player"):
-		jogador = get_parent().get_node("Player")
-	elif is_inside_tree() and get_tree():
-		if is_instance_valid(get_tree().get_first_node_in_group("jogador")):
-			jogador = get_tree().get_first_node_in_group("jogador")
-		elif is_instance_valid(get_tree().get_first_node_in_group("player")):
-			jogador = get_tree().get_first_node_in_group("player")
+	if not is_inside_tree() or not get_tree():
+		return
+
+	var jogador_por_grupo = get_tree().get_first_node_in_group("jogador")
+	if not jogador_por_grupo:
+		jogador_por_grupo = get_tree().get_first_node_in_group("player")
+	if jogador_por_grupo is CharacterBody2D:
+		jogador = jogador_por_grupo
+		return
+
+	var scene := get_tree().current_scene
+	if scene:
+		var jogador_por_nome := scene.find_child("jogador", true, false)
+		if not jogador_por_nome:
+			jogador_por_nome = scene.find_child("Player", true, false)
+		if jogador_por_nome is CharacterBody2D:
+			jogador = jogador_por_nome
 
 # ----- Bloco _process - Atualiza a todo frame -----
 func _process(_delta: float) -> void:
