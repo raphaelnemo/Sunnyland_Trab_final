@@ -115,6 +115,10 @@ func _on_timer_timeout() -> void:
 		var player = get_tree().get_first_node_in_group("player")
 		if not player:
 			player = get_tree().get_first_node_in_group("jogador")
+		if not player and get_tree().current_scene:
+			player = get_tree().current_scene.find_child("Player", true, false)
+			if not player:
+				player = get_tree().current_scene.find_child("jogador", true, false)
 		if player:
 			var dir_to_player = sign(player.global_position.x - global_position.x)
 			if dir_to_player != 0:

@@ -16,7 +16,7 @@ func _on_timer_timeout() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "jogador":
+	if body.name == "jogador" or body.name == "Player":
 		var y_delta = position.y - body.position.y
 		if (y_delta > -99):
 			print("enemy dies", y_delta)

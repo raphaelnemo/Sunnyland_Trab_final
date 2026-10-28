@@ -251,3 +251,5 @@ offset_bottom = 16.0
 [node name="Inimigos" type="Node" parent="." unique_id=1737839731]
 
 [node name="Oneway-plataformas" type="Node" parent="." unique_id=161742012]
+
+[editable path="jogador"]

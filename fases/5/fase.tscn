@@ -696,3 +696,5 @@ drag_vertical_enabled = true
 
 [connection signal="jogadorDano" from="Enemies/Opossum" to="ui_vida" method="_on_gamba_jogador_dano"]
 [connection signal="jogadorDano" from="Enemies/Opossum2" to="ui_vida" method="_on_gamba_jogador_dano"]
+
+[editable path="Player"]

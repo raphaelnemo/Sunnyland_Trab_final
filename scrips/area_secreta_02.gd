@@ -12,11 +12,11 @@ func _ready() -> void:
 		polygon_2d.modulate.a = 1.0
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player or body.is_in_group("player"):
+	if body is Player or body.is_in_group("player") or body.is_in_group("jogador") or body.name.to_lower() == "player" or body.name.to_lower() == "jogador":
 		_transicionar_opacidade(0.0)
 
 func _on_body_exited(body: Node2D) -> void:
-	if body is Player or body.is_in_group("player"):
+	if body is Player or body.is_in_group("player") or body.is_in_group("jogador") or body.name.to_lower() == "player" or body.name.to_lower() == "jogador":
 		_transicionar_opacidade(1.0)
 
 func _transicionar_opacidade(alvo_alpha: float) -> void:

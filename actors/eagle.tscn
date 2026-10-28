@@ -64,7 +64,7 @@ animations = [{
 size = Vector2(28, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hurt"]
-size = Vector2(22, 8)
+size = Vector2(40, 48)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_detector"]
 radius = 64.0
@@ -93,7 +93,7 @@ debug_color = Color(0.329412, 0.615686, 0.294118, 0.419608)
 [node name="HurtBox" parent="." unique_id=803116335 instance=ExtResource("13_hurtbox")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1818267159]
-position = Vector2(0, -10)
+position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_hurt")
 debug_color = Color(0.992157, 0.0941176, 0, 0.419608)
 
@@ -105,3 +105,5 @@ collision_mask = 2
 position = Vector2(0, 40)
 shape = SubResource("CircleShape2D_detector")
 debug_color = Color(0.686275, 0.498039, 0, 0.156863)
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

@@ -15,7 +15,7 @@ func _obter_camera() -> Camera2D:
 	return get_tree().get_first_node_in_group("main_camera") as Camera2D
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player or body.is_in_group("player"):
+	if body is Player or body.is_in_group("player") or body.is_in_group("jogador") or body.name.to_lower() == "player" or body.name.to_lower() == "jogador":
 		var camera := _obter_camera()
 		if camera and not _limite_definido:
 			_limite_original = camera.limit_left
@@ -23,7 +23,7 @@ func _on_body_entered(body: Node2D) -> void:
 		_transicionar_camera(limite_caverna)
 
 func _on_body_exited(body: Node2D) -> void:
-	if body is Player or body.is_in_group("player"):
+	if body is Player or body.is_in_group("player") or body.is_in_group("jogador") or body.name.to_lower() == "player" or body.name.to_lower() == "jogador":
 		_transicionar_camera(_limite_original)
 
 func _transicionar_camera(alvo: int) -> void:

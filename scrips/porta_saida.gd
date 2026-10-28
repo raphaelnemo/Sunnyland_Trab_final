@@ -40,7 +40,7 @@ func _checar_corpos_iniciais() -> void:
 		_on_body_entered(body)
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player or body.is_in_group("player") or body.is_in_group("jogador") or body.name == "Player":
+	if body is Player or body.is_in_group("player") or body.is_in_group("jogador") or body.name.to_lower() == "player" or body.name.to_lower() == "jogador":
 		print("[Porta] Jogador chegou na porta!")
 		jogador_na_porta = true
 		if body is Player:
@@ -52,7 +52,7 @@ func _on_body_entered(body: Node2D) -> void:
 			prompt_label.modulate.a = 1.0
 
 func _on_body_exited(body: Node2D) -> void:
-	if body is Player or body.is_in_group("player") or body.is_in_group("jogador") or body.name == "Player":
+	if body is Player or body.is_in_group("player") or body.is_in_group("jogador") or body.name.to_lower() == "player" or body.name.to_lower() == "jogador":
 		print("[Porta] Jogador saiu da porta.")
 		jogador_na_porta = false
 		jogador_ref = null

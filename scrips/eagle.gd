@@ -206,10 +206,18 @@ func _orient_towards_nearest_player() -> void:
 		anim.flip_h = (player.global_position.x > global_position.x)
 
 func _get_player() -> Node2D:
-	var p = get_tree().get_first_node_in_group("player")
-	if not p:
-		p = get_tree().get_first_node_in_group("jogador")
-	return p
+	var nodes = get_tree().get_nodes_in_group("player") + get_tree().get_nodes_in_group("jogador")
+	for node in nodes:
+		if node is Node2D:
+			return node
+		elif node.get_parent() is Node2D:
+			return node.get_parent()
+	var scene := get_tree().current_scene
+	if scene:
+		for node in scene.find_children("*", "Node2D", true, false):
+			if node.name.to_lower() == "player" or node.name.to_lower() == "jogador":
+				return node
+	return null
 
 func _on_player_detected(body: Node2D) -> void:
 	if not can_dive or not can_dive_again:
@@ -217,7 +225,7 @@ func _on_player_detected(body: Node2D) -> void:
 	if state != State.PATROL:
 		return
 
-	if body.is_in_group("player") or body.is_in_group("jogador"):
+	if body.is_in_group("player") or body.is_in_group("jogador") or body.name.to_lower() == "player" or body.name.to_lower() == "jogador":
 		dive_target = body.global_position
 		state = State.DIVE
 		can_dive_again = false
