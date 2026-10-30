@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dt4vwaoalnscf" path="res://assets/fases/Props/tree-house.png" id="14_rtf52"]
 [ext_resource type="Texture2D" uid="uid://c78xqs4v1v4bp" path="res://assets/environment/props/bush.png" id="15_0sh5k"]
 [ext_resource type="Texture2D" uid="uid://dojfkjdq6noe6" path="res://assets/environment/props/pine.png" id="16_cwcjd"]
+[ext_resource type="PackedScene" uid="uid://df7w812j34klm" path="res://prefabs/escada.tscn" id="17_ladder"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8vpl0"]
 texture = ExtResource("2_q1j2w")
@@ -281,6 +282,9 @@ texture = ExtResource("14_rtf52")
 [node name="Player" parent="." unique_id=877121923 instance=ExtResource("10_rkig8")]
 position = Vector2(152, -88)
 
+[node name="anim" parent="Player" index="1" unique_id=123209955]
+animation = &"idle"
+
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1626278140]
 position = Vector2(-152, -40)
 anchor_mode = 0
@@ -372,6 +376,14 @@ metadata/_edit_lock_ = true
 position = Vector2(1576, -316)
 metadata/_scene_painted = true
 metadata/_edit_lock_ = true
+
+[node name="Escadas" type="Node2D" parent="." unique_id=1900000011]
+
+[node name="Escada" parent="Escadas" unique_id=1900000012 instance=ExtResource("17_ladder")]
+position = Vector2(1510, -166)
+
+[node name="Escada2" parent="Escadas" unique_id=1900000013 instance=ExtResource("17_ladder")]
+position = Vector2(1408, -32)
 
 [node name="ui_vida" parent="." unique_id=1941679242 instance=ExtResource("9_rkig8")]
 
