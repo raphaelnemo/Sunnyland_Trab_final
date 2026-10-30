@@ -13,7 +13,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if coletado:
 		return
-	if body.is_in_group("jogador") or body.is_in_group("player") or body is Player or body.name.to_lower() == "player" or body.name.to_lower() == "jogador":
+	if JogadorCompat.eh_jogador(body):
 		coletado = true
 		diamante_coletado.emit(score_value)
 		_collect()

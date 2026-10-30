@@ -6,6 +6,9 @@ signal jogador_recuperacao
 # Carrega o feedback em uma variavel
 @onready var feedback = preload("res://prefab/coletaveis/Feedback/feedback.tscn") 
 
+func _eh_jogador(body: Node2D) -> bool:
+	return JogadorCompat.eh_jogador(body)
+
 # Funçao que aciona o feedback de item coletado
 func spawn_feedback():
 	# Atribui uma instancia do feedback a uma variavel
@@ -17,7 +20,7 @@ func spawn_feedback():
 
 # Quando o jogador coleta a cereja o feedback e o sinal são ativados e a cereja é destruida 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "jogador":
-		emit_signal("jogador_recuperacao",body) 
+	if _eh_jogador(body):
+		emit_signal("jogador_recuperacao", body)
 		spawn_feedback()
 		queue_free()

@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://bjlwrl0n5kfen" path="res://prefab/jogador/jogador.gd" id="1_o11ko"]
 [ext_resource type="Texture2D" uid="uid://ceshs1imbmmkc" path="res://prefab/jogador/jogador.png" id="2_6laf6"]
 [ext_resource type="Texture2D" uid="uid://1scu5d16grgr" path="res://prefab/jogador/vida.png" id="4_awy6c"]
+[ext_resource type="Texture2D" path="res://assets/player/foxy-sprites/hurt/spritesheet.png" id="5_hurt"]
+[ext_resource type="Texture2D" path="res://assets/player/foxy-sprites/die/spritesheet.png" id="6_die"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgaj5"]
 size = Vector2(16, 16)
@@ -56,6 +58,14 @@ region = Rect2(165, 32, 33, 32)
 atlas = ExtResource("2_6laf6")
 region = Rect2(0, 160, 33, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hurt_01"]
+atlas = ExtResource("5_hurt")
+region = Rect2(0, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hurt_02"]
+atlas = ExtResource("5_hurt")
+region = Rect2(33, 0, 33, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_oox5t"]
 animations = [{
 "frames": [{
@@ -105,6 +115,25 @@ animations = [{
 "loop": 1,
 "name": &"correndo",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hurt_01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hurt_02")
+}],
+"loop": 0,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_die")
+}],
+"loop": 0,
+"name": &"die",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,

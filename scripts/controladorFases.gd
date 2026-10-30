@@ -57,7 +57,7 @@ func estaDesbloqueada(id : int) -> bool:
 	
 func desbloquearFase(id : int) -> void:
 	for faseCarregada in fasesDisponiveis:
-		if faseCarregada.idFase == id && !estaDesbloqueada(id):
+		if faseCarregada.idFase == id and not estaDesbloqueada(id):
 			faseCarregada.faseDesbloqueada = true
 
 func estaCompletada(id : int) -> bool:
@@ -68,5 +68,5 @@ func estaCompletada(id : int) -> bool:
 
 func faseCompletada(id : int) -> void:
 	for faseCarregada in fasesDisponiveis:
-		if faseCarregada.idFase == id && !estaCompletada(id):
+		if faseCarregada.idFase == id and not estaCompletada(id):
 			faseCarregada.faseCompletada = true

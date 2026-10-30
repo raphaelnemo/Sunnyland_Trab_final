@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+func _ready() -> void:
+	add_to_group("jogador")
+	add_to_group("player")
+
 # Variaveis de movimentação
 var direcao
 var velocidade : float = 150.0
@@ -11,6 +15,8 @@ var cronometroPulo : float = 0
 var tempoFlutuando : float = 0.075
 var cronometroFlutuando : float = 0
 var controlavel : bool = true
+var invulneravel : bool = false
+var recebendo_dano : bool = false
 
 # Variaveis da vida do personagem
 @export var vida_maxima: int = 3
@@ -72,6 +78,9 @@ func _physics_process(delta):
 
 # Função para atualizar a animação com base na direção em que o jogador está indo
 func update_animations():
+	if recebendo_dano or not controlavel:
+		return
+
 	if direcao != 0:
 		animacao.flip_h = direcao < 0
 		animacao.play("correndo")	
@@ -85,21 +94,44 @@ func update_animations():
 
 # Função que causa dano ao personagem
 func perder_vida(quantidade: int) -> void:
+	if invulneravel or not controlavel:
+		return
+
+	invulneravel = true
 	vida_atual -= quantidade
 	print("Jogador perdeu vida! Vida atual: ", vida_atual)
 	if vida_atual <= 0:
+		vida_atual = 0
 		morto()
+	else:
+		recebendo_dano = true
+		animacao.play("hurt")
+		await get_tree().create_timer(0.4).timeout
+		if not is_inside_tree():
+			return
+		recebendo_dano = false
+		invulneravel = false
 
 # Função que recupera a vida do personagem
 func ganhar_vida(quantidade: int) -> void:
 	vida_atual += quantidade
 	print("Jogador ganhou vida! Vida atual: ", vida_atual)
 
+func rebater_ao_pisar() -> void:
+	velocity.y = forcaPulo
+	pulando = true
+	cronometroPulo = 0
+	cronometroFlutuando = 0
+
 # Função que "mata" o personagem (tira o controle e deixa o personagem invisivel)
 func morto() -> void:
-	visible = false
 	controlavel = false
+	invulneravel = true
+	animacao.play("die")
 	await get_tree().create_timer(1).timeout
+	if not is_inside_tree():
+		return
+	visible = false
 	resetar()
 
 # Função que revive o personagem e recarega a fase

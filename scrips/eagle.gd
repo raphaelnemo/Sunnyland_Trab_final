@@ -225,7 +225,7 @@ func _on_player_detected(body: Node2D) -> void:
 	if state != State.PATROL:
 		return
 
-	if body.is_in_group("player") or body.is_in_group("jogador") or body.name.to_lower() == "player" or body.name.to_lower() == "jogador":
+	if JogadorCompat.eh_jogador(body):
 		dive_target = body.global_position
 		state = State.DIVE
 		can_dive_again = false

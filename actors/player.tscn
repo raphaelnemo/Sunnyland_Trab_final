@@ -14,6 +14,22 @@
 radius = 7.0
 height = 22.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_climb_01"]
+atlas = ExtResource("5_climb")
+region = Rect2(0, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_climb_02"]
+atlas = ExtResource("5_climb")
+region = Rect2(33, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_climb_03"]
+atlas = ExtResource("5_climb")
+region = Rect2(66, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_climb_04"]
+atlas = ExtResource("5_climb")
+region = Rect2(99, 0, 33, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_nwdhp"]
 atlas = ExtResource("3_g4e6v")
 region = Rect2(33, 0, 33, 32)
@@ -70,24 +86,25 @@ region = Rect2(132, 0, 33, 32)
 atlas = ExtResource("4_q8qre")
 region = Rect2(165, 0, 33, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_climb_01"]
-atlas = ExtResource("5_climb")
-region = Rect2(0, 0, 33, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_climb_02"]
-atlas = ExtResource("5_climb")
-region = Rect2(33, 0, 33, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_climb_03"]
-atlas = ExtResource("5_climb")
-region = Rect2(66, 0, 33, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_climb_04"]
-atlas = ExtResource("5_climb")
-region = Rect2(99, 0, 33, 32)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_rfe5m"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_climb_01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_climb_02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_climb_03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_climb_04")
+}],
+"loop": 1,
+"name": &"climb",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_rlg88")
@@ -162,23 +179,6 @@ animations = [{
 "loop": 1,
 "name": &"run",
 "speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_climb_01")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_climb_02")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_climb_03")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_climb_04")
-}],
-"loop": true,
-"name": &"climb",
-"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifeun"]
@@ -189,7 +189,6 @@ size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D" unique_id=877121923 groups=["jogador", "player"]]
 collision_layer = 2
-floor_stop_on_slope = true
 floor_constant_speed = true
 floor_max_angle = 0.872665
 floor_snap_length = 12.0
@@ -202,7 +201,7 @@ shape = SubResource("CapsuleShape2D_kv1v1")
 [node name="anim" type="AnimatedSprite2D" parent="." unique_id=123209955]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_rfe5m")
-animation = &"idle"
+animation = &"climb"
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=1398035099]
 remote_path = NodePath("..")
